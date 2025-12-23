@@ -250,11 +250,11 @@ size_t count = freecs_query_count(&world, BIT_POSITION | BIT_VELOCITY, 0);
 
 // Get first entity matching query
 bool found;
-freecs_entity_t entity = freecs_query_first(&world, BIT_POSITION, 0, &found);
+freecs_entity_t first = freecs_query_first(&world, BIT_POSITION, 0, &found);
 
 // Get all entities matching query
-size_t count;
-freecs_entity_t* entities = freecs_query_entities(&world, BIT_POSITION, 0, &count);
+size_t entity_count;
+freecs_entity_t* entities = freecs_query_entities(&world, BIT_POSITION, 0, &entity_count);
 free(entities);  // Caller owns the returned array
 ```
 
@@ -335,11 +335,27 @@ freecs_clear_events(&collision_events);
 freecs_destroy_event_queue(&collision_events);
 ```
 
-## Example: Tower Defense
+## Examples
 
-See `examples/tower_defense.c` for a complete tower defense game using raylib.
+### Boids Simulation
 
-Build and run:
+See `examples/boids.c` for a complete boids flocking simulation using raylib:
+
+```bash
+make boids
+./boids
+```
+
+Controls:
+- **Space**: Pause/unpause
+- **+/-**: Add/remove 1000 boids
+- **Arrow keys**: Adjust alignment/cohesion weights
+- **Left mouse**: Attract boids
+- **Right mouse**: Repel boids
+
+### Tower Defense
+
+See `examples/tower_defense.c` for a complete tower defense game using raylib:
 
 ```bash
 make tower_defense
@@ -374,4 +390,4 @@ Or use the provided Makefile.
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.

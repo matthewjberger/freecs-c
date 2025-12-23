@@ -6,6 +6,7 @@ SRC = freecs.c
 HDR = freecs.h
 TEST_SRC = freecs_tests.c
 TOWER_SRC = examples/tower_defense.c
+BOIDS_SRC = examples/boids.c
 
 RAYLIB_FLAGS = -lraylib -lopengl32 -lgdi32 -lwinmm
 
@@ -20,10 +21,13 @@ tests_debug: $(SRC) $(HDR) $(TEST_SRC)
 tower_defense: $(SRC) $(HDR) $(TOWER_SRC)
 	$(CC) $(CFLAGS) -o tower_defense $(SRC) $(TOWER_SRC) -lm $(RAYLIB_FLAGS)
 
+boids: $(SRC) $(HDR) $(BOIDS_SRC)
+	$(CC) $(CFLAGS) -o boids $(SRC) $(BOIDS_SRC) -lm $(RAYLIB_FLAGS)
+
 run_tests: tests
 	./tests
 
 clean:
-	rm -f tests tests_debug tower_defense *.o *.exe
+	rm -f tests tests_debug tower_defense boids *.o *.exe
 
-.PHONY: all clean run_tests tests_debug tower_defense
+.PHONY: all clean run_tests tests_debug tower_defense boids
