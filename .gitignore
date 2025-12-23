@@ -1,0 +1,13 @@
+# Executables
+*.exe
+
+# Windows debug files
+*.pdb
+*.ilk
+
+# Object files
+*.obj
+*.o
+
+# Accidental files
+nul
