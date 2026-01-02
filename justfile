@@ -24,7 +24,7 @@ setup: install-tools install-raylib
 
 # Build tests
 build-tests:
-    export PATH="$HOME/scoop/apps/mingw/current/bin:$PATH" && gcc {{CFLAGS}} -o tests.exe freecs.c freecs_tests.c
+    export PATH="$HOME/scoop/apps/mingw/current/bin:$PATH" && gcc {{CFLAGS}} -o tests.exe freecs_tests.c
 
 # Run tests
 test: build-tests
@@ -32,7 +32,7 @@ test: build-tests
 
 # Build tower defense game
 build-tower:
-    export PATH="$HOME/scoop/apps/mingw/current/bin:$PATH" && gcc {{CFLAGS}} -o tower_defense.exe freecs.c examples/tower_defense.c \
+    export PATH="$HOME/scoop/apps/mingw/current/bin:$PATH" && gcc {{CFLAGS}} -o tower_defense.exe examples/tower_defense.c \
         -I{{RAYLIB_INC}} -L{{RAYLIB_LIB}} {{RAYLIB_FLAGS}}
 
 # Build and run tower defense
@@ -41,7 +41,7 @@ tower: build-tower
 
 # Build boids simulation
 build-boids:
-    export PATH="$HOME/scoop/apps/mingw/current/bin:$PATH" && gcc {{CFLAGS}} -o boids.exe freecs.c examples/boids.c \
+    export PATH="$HOME/scoop/apps/mingw/current/bin:$PATH" && gcc {{CFLAGS}} -o boids.exe examples/boids.c \
         -I{{RAYLIB_INC}} -L{{RAYLIB_LIB}} {{RAYLIB_FLAGS}}
 
 # Build and run boids

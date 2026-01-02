@@ -1,3 +1,4 @@
+#define FREECS_IMPLEMENTATION
 #include "freecs.h"
 #include <stdio.h>
 #include <stdlib.h>

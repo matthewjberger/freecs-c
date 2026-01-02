@@ -1,3 +1,4 @@
+#define FREECS_IMPLEMENTATION
 #include "../freecs.h"
 #include <raylib.h>
 #include <stdlib.h>
