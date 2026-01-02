@@ -20,9 +20,25 @@ This is a C port of [freecs](https://github.com/matthewjberger/freecs), a Rust E
 
 ## Quick Start
 
-Copy `freecs.h` and `freecs.c` into your project:
+freecs is a **header-only library**. Copy `freecs.h` into your project.
+
+In **exactly one** `.c` file, define `FREECS_IMPLEMENTATION` before including:
 
 ```c
+#define FREECS_IMPLEMENTATION
+#include "freecs.h"
+```
+
+All other files just include normally:
+
+```c
+#include "freecs.h"
+```
+
+### Minimal Example
+
+```c
+#define FREECS_IMPLEMENTATION
 #include "freecs.h"
 #include <stdio.h>
 
@@ -342,8 +358,7 @@ freecs_destroy_event_queue(&collision_events);
 See `examples/boids.c` for a complete boids flocking simulation using raylib:
 
 ```bash
-make boids
-./boids
+just boids
 ```
 
 Controls:
@@ -358,15 +373,14 @@ Controls:
 See `examples/tower_defense.c` for a complete tower defense game using raylib:
 
 ```bash
-make tower_defense
-./tower_defense
+just tower
 ```
 
 ## Running Tests
 
 ```bash
-make tests
-./tests
+just test
+# or: make tests && ./tests
 ```
 
 All 14 tests verify:
@@ -380,13 +394,13 @@ All 14 tests verify:
 
 ## Building
 
-The library is just two files: `freecs.h` and `freecs.c`. Copy them into your project and compile:
+freecs is header-only. Just include it in your project:
 
 ```bash
-gcc -Wall -Wextra -std=c11 -O2 -c freecs.c -o freecs.o
+gcc -Wall -Wextra -std=c11 -O2 your_program.c -o your_program
 ```
 
-Or use the provided Makefile.
+Or use the provided Makefile/justfile.
 
 ## License
 
